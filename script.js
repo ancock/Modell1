@@ -1,4 +1,4 @@
-/* Smooth Scroll Navigation */
+/* Smooth Scroll */
 document.querySelectorAll('nav a').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
@@ -8,16 +8,15 @@ document.querySelectorAll('nav a').forEach(link => {
   });
 });
 
-/* Parallax Effekt im Hero */
+/* Parallax Hero */
 const heroBg = document.querySelector('.hero-bg');
 window.addEventListener('scroll', () => {
-  const sc = window.scrollY * 0.25;
-  heroBg.style.transform = `translateY(${sc}px) scale(1.1)`;
+  heroBg.style.transform = `translateY(${window.scrollY * 0.25}px) scale(1.1)`;
 });
 
-/* Scroll Animation der Cards */
+/* Karten Animation */
 const cards = document.querySelectorAll('.glass-card');
-function checkCards() {
+function revealCards() {
   const trigger = window.innerHeight * 0.85;
   cards.forEach(card => {
     if (card.getBoundingClientRect().top < trigger) {
@@ -25,38 +24,36 @@ function checkCards() {
     }
   });
 }
-window.addEventListener('scroll', checkCards);
-checkCards();
+window.addEventListener('scroll', revealCards);
+revealCards();
 
-/* Temperatur-Slider */
+/* Temperatur Slider */
 const slider = document.getElementById('tempSlider');
 const futureImg = document.getElementById('futureImg');
 
 slider.addEventListener('input', () => {
-  const v = slider.value; /* 0 - 100 */
-  futureImg.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
+  futureImg.style.clipPath = `inset(0 ${100 - slider.value}% 0 0)`;
 });
 
 /* 3D Globus */
 const container = document.getElementById('globe-container');
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, container.offsetWidth / container.offsetHeight, 0.1, 1000);
-camera.position.set(0, 0, 2.2);
+camera.position.z = 2.2;
 
-const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 renderer.setSize(container.offsetWidth, container.offsetHeight);
 container.appendChild(renderer.domElement);
 
-// Textur (kannst du ersetzen: BILDER/erde.jpg)
-const textureLoader = new THREE.TextureLoader();
-const earthTexture = textureLoader.load("BILDER/erde.jpg");
+const loader = new THREE.TextureLoader();
+const earthTexture = loader.load("bilder/erde.jpg");
 
-const geo = new THREE.SphereGeometry(1, 64, 64);
-const mat = new THREE.MeshStandardMaterial({ map: earthTexture });
-const globe = new THREE.Mesh(geo, mat);
+const globe = new THREE.Mesh(
+  new THREE.SphereGeometry(1, 64, 64),
+  new THREE.MeshStandardMaterial({ map: earthTexture })
+);
 scene.add(globe);
 
-// Licht
 const light = new THREE.PointLight(0xffffff, 1.3);
 light.position.set(3, 3, 3);
 scene.add(light);
@@ -68,7 +65,6 @@ function animate() {
 }
 animate();
 
-// Resize Handler
 window.addEventListener('resize', () => {
   renderer.setSize(container.offsetWidth, container.offsetHeight);
   camera.aspect = container.offsetWidth / container.offsetHeight;
