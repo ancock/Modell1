@@ -5,13 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Klimawandel & Grundrechte – Modellseite</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Three.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 
 <body>
 
-<!-- Navigation -->
 <nav class="nav">
   <a href="#hero">Start</a>
   <a href="#modell">Modell</a>
@@ -19,14 +17,11 @@
   <a href="#fazit">Fazit</a>
 </nav>
 
-<!-- Hero mit Parallax -->
 <header id="hero" class="hero">
   <img
-    src="https://www.umweltbundesamt.de/sites/default/files/medien/377/bilder/3.0_eisbar_vor_schiff_ondrejprosicky_fotolia_102594697_m.jpg"
+    src="bilder/hitze-extremwetter.jpg"
     class="hero-bg"
-    alt="Hero Hintergrund"
-  >
-
+    alt="Arktis Hintergrund">
   <div class="hero-overlay">
     <h1>Arktis, Klima & Menschenrechte</h1>
     <p>Klimawandel sichtbar verstehen</p>
@@ -35,73 +30,280 @@
 
 <main>
 
-<!-- 3D Globus -->
 <section class="glass-card">
   <h2>3D Arktis-Globus</h2>
-  <p>Der Globus zeigt die Erde von Norden aus, mit realistischer Oberfläche. Er dreht sich langsam, um den Verlust der Eisfläche zu verdeutlichen.</p>
+  <p>Der Globus zeigt die Erde von Norden aus. Die Rotation verdeutlicht die globale Dimension des Eisverlustes.</p>
   <div id="globe-container"></div>
 </section>
 
-<!-- Temperatur-Slider (Bildmorph) -->
 <section class="glass-card" id="modell">
-  <h2>Modell: Arktis heute vs. +2°C Zukunft</h2>
-  <p>Verschiebe den Regler, um das Eis zwischen Gegenwart und +2°C Zukunft zu überblenden.</p>
+  <h2>Modell: Arktis heute vs. +2 °C</h2>
+  <p>Der Regler blendet die heutige Eisfläche mit dem prognostizierten Zustand bei +2 °C globaler Erwärmung.</p>
 
   <div class="slider-wrapper">
     <div class="img-compare">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Arctic_sea_ice_minimum_2012.png"
-     class="img-base">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Arctic_ice_minimum_2020.png"
-     class="img-overlay" id="futureImg">
+      <img
+        src="bilder/arktis_heute.png"
+        class="img-base"
+        alt="Heutige Eisfläche der Arktis">
+
+      <img
+        src="bilder/arktis_plus2c.png"
+        class="img-overlay"
+        id="futureImg"
+        alt="Arktis bei +2 Grad Celsius">
 
     </div>
+
     <input type="range" min="0" max="100" value="0" id="tempSlider">
   </div>
 </section>
 
-<!-- Audio -->
 <section class="glass-card">
   <h2>Sprachnachricht</h2>
-  <p>Hier kannst du deine eigene Sprachnachricht einbinden.</p>
   <audio controls>
     <source src="AUDIO/deine_sprachnachricht.mp3" type="audio/mpeg">
   </audio>
 </section>
 
-<!-- Sektionen zu Grundrechten -->
 <section class="glass-card" id="rechte">
   <h2>Gesundheit und Menschenwürde</h2>
-  <img src="BILDER/hitze-extremwetter.jpg" alt="Extremwetter">
-  <p>Steigende Temperaturen verursachen Hitzewellen, Extremwetter und Krankheitsausbreitung. Sie gefährden die körperliche Unversehrtheit und damit Artikel 1–3 der EU-Grundrechtecharta.</p>
+  <img src="bilder/hitze-extremwetter.jpg" alt="Extremwetter">
+  <p>Hitzewellen und Extremwetter gefährden die körperliche Unversehrtheit und die Menschenwürde.</p>
 </section>
 
 <section class="glass-card">
   <h2>Recht auf Leben, Nahrung und Wasser</h2>
-  <img src="BILDER/meeresspiegel.jpg" alt="Küstenregionen">
-  <p>Schwindendes Eis trägt zum Meeresspiegelanstieg bei und bedroht weltweite Küstenregionen. Ernährung, Wasser und Sicherheit geraten unter Druck.</p>
+  <img src="bilder/meeresspiegel.jpg" alt="Meeresspiegel">
+  <p>Schwindendes Eis verstärkt den Meeresspiegelanstieg und bedroht Küstenregionen weltweit.</p>
 </section>
 
 <section class="glass-card">
-  <h2>Kulturelle Rechte und Selbstbestimmung</h2>
-  <img src="BILDER/indigene-arktis.jpg" alt="Indigene Gemeinschaften">
-  <p>Indigene Gemeinschaften sind eng mit der Arktis verbunden. Eisverlust bedroht ihre kulturellen Rechte und Lebensweisen.</p>
+  <h2>Kulturelle Rechte</h2>
+  <img src="bilder/indigene-arktis.jpg" alt="Indigene Arktis">
+  <p>Der Verlust der Eisflächen bedroht die Lebensgrundlagen indigener Gemeinschaften.</p>
 </section>
 
 <section class="glass-card">
-  <h2>Klimagerechtigkeit und Solidarität</h2>
-  <img src="BILDER/solidaritaet.jpg" alt="Solidarität">
-  <p>Die Folgen des Klimawandels treffen diejenigen am stärksten, die am wenigsten dazu beitragen. Klimaschutz ist Ausdruck globaler Gerechtigkeit.</p>
+  <h2>Klimagerechtigkeit</h2>
+  <img src="bilder/solidaritaet.jpg" alt="Solidarität">
+  <p>Klimaschutz ist eine Frage globaler Verantwortung und Solidarität.</p>
 </section>
 
 <section class="glass-card" id="fazit">
   <h2>Fazit</h2>
-  <p>Das Schrumpfen der Arktis ist ein Menschenrechtsthema. Klimaschutz bedeutet Schutz von Gesundheit, Würde, Kultur und Leben kommender Generationen.</p>
+  <p>Der Schutz der Arktis ist untrennbar mit dem Schutz grundlegender Menschenrechte verbunden.</p>
 </section>
 
 </main>
 
 <script src="script.js"></script>
+</body>
+</html>
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Klimawandel & Grundrechte – Modellseite</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
 
+<body>
+
+<nav class="nav">
+  <a href="#hero">Start</a>
+  <a href="#modell">Modell</a>
+  <a href="#rechte">Grundrechte</a>
+  <a href="#fazit">Fazit</a>
+</nav>
+
+<header id="hero" class="hero">
+  <img
+    src="bilder/hitze-extremwetter.jpg"
+    class="hero-bg"
+    alt="Arktis Hintergrund">
+  <div class="hero-overlay">
+    <h1>Arktis, Klima & Menschenrechte</h1>
+    <p>Klimawandel sichtbar verstehen</p>
+  </div>
+</header>
+
+<main>
+
+<section class="glass-card">
+  <h2>3D Arktis-Globus</h2>
+  <p>Der Globus zeigt die Erde von Norden aus. Die Rotation verdeutlicht die globale Dimension des Eisverlustes.</p>
+  <div id="globe-container"></div>
+</section>
+
+<section class="glass-card" id="modell">
+  <h2>Modell: Arktis heute vs. +2 °C</h2>
+  <p>Der Regler blendet die heutige Eisfläche mit dem prognostizierten Zustand bei +2 °C globaler Erwärmung.</p>
+
+  <div class="slider-wrapper">
+    <div class="img-compare">
+
+      <img
+        src="bilder/arktis_heute.png"
+        class="img-base"
+        alt="Heutige Eisfläche der Arktis">
+
+      <img
+        src="bilder/arktis_plus2c.png"
+        class="img-overlay"
+        id="futureImg"
+        alt="Arktis bei +2 Grad Celsius">
+
+    </div>
+
+    <input type="range" min="0" max="100" value="0" id="tempSlider">
+  </div>
+</section>
+
+<section class="glass-card">
+  <h2>Sprachnachricht</h2>
+  <audio controls>
+    <source src="AUDIO/deine_sprachnachricht.mp3" type="audio/mpeg">
+  </audio>
+</section>
+
+<section class="glass-card" id="rechte">
+  <h2>Gesundheit und Menschenwürde</h2>
+  <img src="bilder/hitze-extremwetter.jpg" alt="Extremwetter">
+  <p>Hitzewellen und Extremwetter gefährden die körperliche Unversehrtheit und die Menschenwürde.</p>
+</section>
+
+<section class="glass-card">
+  <h2>Recht auf Leben, Nahrung und Wasser</h2>
+  <img src="bilder/meeresspiegel.jpg" alt="Meeresspiegel">
+  <p>Schwindendes Eis verstärkt den Meeresspiegelanstieg und bedroht Küstenregionen weltweit.</p>
+</section>
+
+<section class="glass-card">
+  <h2>Kulturelle Rechte</h2>
+  <img src="bilder/indigene-arktis.jpg" alt="Indigene Arktis">
+  <p>Der Verlust der Eisflächen bedroht die Lebensgrundlagen indigener Gemeinschaften.</p>
+</section>
+
+<section class="glass-card">
+  <h2>Klimagerechtigkeit</h2>
+  <img src="bilder/solidaritaet.jpg" alt="Solidarität">
+  <p>Klimaschutz ist eine Frage globaler Verantwortung und Solidarität.</p>
+</section>
+
+<section class="glass-card" id="fazit">
+  <h2>Fazit</h2>
+  <p>Der Schutz der Arktis ist untrennbar mit dem Schutz grundlegender Menschenrechte verbunden.</p>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Klimawandel & Grundrechte – Modellseite</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+
+<nav class="nav">
+  <a href="#hero">Start</a>
+  <a href="#modell">Modell</a>
+  <a href="#rechte">Grundrechte</a>
+  <a href="#fazit">Fazit</a>
+</nav>
+
+<header id="hero" class="hero">
+  <img
+    src="bilder/hitze-extremwetter.jpg"
+    class="hero-bg"
+    alt="Arktis Hintergrund">
+  <div class="hero-overlay">
+    <h1>Arktis, Klima & Menschenrechte</h1>
+    <p>Klimawandel sichtbar verstehen</p>
+  </div>
+</header>
+
+<main>
+
+<section class="glass-card">
+  <h2>3D Arktis-Globus</h2>
+  <p>Der Globus zeigt die Erde von Norden aus. Die Rotation verdeutlicht die globale Dimension des Eisverlustes.</p>
+  <div id="globe-container"></div>
+</section>
+
+<section class="glass-card" id="modell">
+  <h2>Modell: Arktis heute vs. +2 °C</h2>
+  <p>Der Regler blendet die heutige Eisfläche mit dem prognostizierten Zustand bei +2 °C globaler Erwärmung.</p>
+
+  <div class="slider-wrapper">
+    <div class="img-compare">
+
+      <img
+        src="bilder/arktis_heute.png"
+        class="img-base"
+        alt="Heutige Eisfläche der Arktis">
+
+      <img
+        src="bilder/arktis_plus2c.png"
+        class="img-overlay"
+        id="futureImg"
+        alt="Arktis bei +2 Grad Celsius">
+
+    </div>
+
+    <input type="range" min="0" max="100" value="0" id="tempSlider">
+  </div>
+</section>
+
+<section class="glass-card">
+  <h2>Sprachnachricht</h2>
+  <audio controls>
+    <source src="AUDIO/deine_sprachnachricht.mp3" type="audio/mpeg">
+  </audio>
+</section>
+
+<section class="glass-card" id="rechte">
+  <h2>Gesundheit und Menschenwürde</h2>
+  <img src="bilder/hitze-extremwetter.jpg" alt="Extremwetter">
+  <p>Hitzewellen und Extremwetter gefährden die körperliche Unversehrtheit und die Menschenwürde.</p>
+</section>
+
+<section class="glass-card">
+  <h2>Recht auf Leben, Nahrung und Wasser</h2>
+  <img src="bilder/meeresspiegel.jpg" alt="Meeresspiegel">
+  <p>Schwindendes Eis verstärkt den Meeresspiegelanstieg und bedroht Küstenregionen weltweit.</p>
+</section>
+
+<section class="glass-card">
+  <h2>Kulturelle Rechte</h2>
+  <img src="bilder/indigene-arktis.jpg" alt="Indigene Arktis">
+  <p>Der Verlust der Eisflächen bedroht die Lebensgrundlagen indigener Gemeinschaften.</p>
+</section>
+
+<section class="glass-card">
+  <h2>Klimagerechtigkeit</h2>
+  <img src="bilder/solidaritaet.jpg" alt="Solidarität">
+  <p>Klimaschutz ist eine Frage globaler Verantwortung und Solidarität.</p>
+</section>
+
+<section class="glass-card" id="fazit">
+  <h2>Fazit</h2>
+  <p>Der Schutz der Arktis ist untrennbar mit dem Schutz grundlegender Menschenrechte verbunden.</p>
+</section>
+
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
