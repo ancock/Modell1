@@ -37,14 +37,25 @@ slider.addEventListener('input', () => {
 
 /* 3D Globus */
 const container = document.getElementById('globe-container');
+
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(45, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+
+const camera = new THREE.PerspectiveCamera(
+  45,
+  container.offsetWidth / container.offsetHeight,
+  0.1,
+  1000
+);
 camera.position.z = 2.2;
 
-const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+const renderer = new THREE.WebGLRenderer({
+  alpha: true,
+  antialias: true
+});
 renderer.setSize(container.offsetWidth, container.offsetHeight);
 container.appendChild(renderer.domElement);
 
+// Erde
 const loader = new THREE.TextureLoader();
 const earthTexture = loader.load("bilder/erde.jpg");
 
@@ -54,10 +65,12 @@ const globe = new THREE.Mesh(
 );
 scene.add(globe);
 
+// Licht
 const light = new THREE.PointLight(0xffffff, 1.3);
 light.position.set(3, 3, 3);
 scene.add(light);
 
+// Animation
 function animate() {
   requestAnimationFrame(animate);
   globe.rotation.y += 0.0008;
@@ -65,6 +78,7 @@ function animate() {
 }
 animate();
 
+// Resize
 window.addEventListener('resize', () => {
   renderer.setSize(container.offsetWidth, container.offsetHeight);
   camera.aspect = container.offsetWidth / container.offsetHeight;
