@@ -1,86 +1,113 @@
-/* Smooth Scroll */
+/* =========================
+   Smooth Scroll Navigation
+========================= */
 document.querySelectorAll('nav a').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
-    document.querySelector(link.getAttribute('href')).scrollIntoView({
-      behavior: "smooth"
-    });
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
   });
 });
 
-/* Parallax Hero */
+/* =========================
+   Parallax Hero Effekt
+========================= */
 const heroBg = document.querySelector('.hero-bg');
+
 window.addEventListener('scroll', () => {
-  heroBg.style.transform = `translateY(${window.scrollY * 0.25}px) scale(1.1)`;
+  if (heroBg) {
+    heroBg.style.transform = `translateY(${window.scrollY * 0.25}px) scale(1.1)`;
+  }
 });
 
-/* Karten Animation */
+/* =========================
+   Karten Reveal Animation
+========================= */
 const cards = document.querySelectorAll('.glass-card');
+
 function revealCards() {
   const trigger = window.innerHeight * 0.85;
+
   cards.forEach(card => {
-    if (card.getBoundingClientRect().top < trigger) {
+    const rect = card.getBoundingClientRect();
+    if (rect.top < trigger) {
       card.classList.add('visible');
     }
   });
 }
+
 window.addEventListener('scroll', revealCards);
 revealCards();
 
-/* Temperatur Slider */
+/* =========================
+   Temperatur Slider
+========================= */
 const slider = document.getElementById('tempSlider');
 const futureImg = document.getElementById('futureImg');
 
-slider.addEventListener('input', () => {
-  futureImg.style.clipPath = `inset(0 ${100 - slider.value}% 0 0)`;
-});
+if (slider && futureImg) {
+  slider.addEventListener('input', () => {
+    futureImg.style.width = slider.value + "%";
+  });
+}
 
-/* 3D Globus */
+/* =========================
+   3D Globus (Three.js)
+========================= */
 const container = document.getElementById('globe-container');
 
-const scene = new THREE.Scene();
+if (container) {
+  const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(
-  45,
-  container.offsetWidth / container.offsetHeight,
-  0.1,
-  1000
-);
-camera.position.z = 2.2;
+  const camera = new THREE.PerspectiveCamera(
+    45,
+    container.clientWidth / container.clientHeight,
+    0.1,
+    1000
+  );
+  camera.position.z = 2.5;
 
-const renderer = new THREE.WebGLRenderer({
-  alpha: true,
-  antialias: true
-});
-renderer.setSize(container.offsetWidth, container.offsetHeight);
-container.appendChild(renderer.domElement);
+  const renderer = new THREE.WebGLRenderer({
+    alpha: true,
+    antialias: true
+  });
 
-// Erde
-const loader = new THREE.TextureLoader();
-const earthTexture = loader.load("bilder/erde.jpg");
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  container.appendChild(renderer.domElement);
 
-const globe = new THREE.Mesh(
-  new THREE.SphereGeometry(1, 64, 64),
-  new THREE.MeshStandardMaterial({ map: earthTexture })
-);
-scene.add(globe);
+  // Textur laden
+  const loader = new THREE.TextureLoader();
+  const earthTexture = loader.load("bilder/erde.jpg");
 
-// Licht
-const light = new THREE.PointLight(0xffffff, 1.3);
-light.position.set(3, 3, 3);
-scene.add(light);
+  // Erde
+  const globe = new THREE.Mesh(
+    new THREE.SphereGeometry(1, 64, 64),
+    new THREE.MeshStandardMaterial({ map: earthTexture })
+  );
+  scene.add(globe);
 
-// Animation
-function animate() {
-  requestAnimationFrame(animate);
-  globe.rotation.y += 0.0008;
-  renderer.render(scene, camera);
+  // Licht
+  const light = new THREE.PointLight(0xffffff, 1.2);
+  light.position.set(3, 3, 3);
+  scene.add(light);
+
+  // Animation
+  function animate() {
+    requestAnimationFrame(animate);
+    globe.rotation.y += 0.001;
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // Responsive Resize
+  window.addEventListener('resize', () => {
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+  });
 }
-animate();
-
-// Resize
-window.addEventListener('resize', () => {
-  renderer.setSize(container.offsetWidth, container.offsetHeight);
-  camera.aspect = container.offsetWidth / container.offsetHeight;
-  camera.updateProjectionMatrix();
-});
